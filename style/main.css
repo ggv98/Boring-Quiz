@@ -1,0 +1,80 @@
+.main-page-header-title{
+    font-size: 2.5rem;
+    color: white;
+}
+.main-page-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu-button{
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: white;
+    padding: 0.25rem;
+    border: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.menu-button:hover{
+    background-color: cadetblue;
+    border-radius: 30% ;
+    cursor:pointer;
+
+}
+.main-header{
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(82, 128, 129);
+    position:fixed;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.menu-image{
+    margin: 4rem 5rem 3rem 5rem;
+    padding: 1rem;
+    width: 19rem;
+    height: 17rem;
+}
+.menu-image:hover{
+    border-radius: 30%;
+    background-color: cadetblue;
+}
+@media screen and (max-width: 64rem) 
+.{
+    background-color:red;
+}
+
+@media screen and (max-width: 44rem) {
+    .menu{
+        padding-top: 4rem;
+    }
+
+    .menu-image{
+        margin: 3rem 4rem 2rem 4rem;
+        padding: 1rem;
+        width: 12rem;
+        height: 10rem;
+    }
+    .main-header{
+        flex-direction:column;
+        height: 6rem;
+    }
+    .menu{
+        justify-content:center;
+    }
+    .menu-button{
+        font-size: 1.2rem;
+    }
+    .main-page-header-title{
+        font-size: 1.7rem;
+    }
+}
