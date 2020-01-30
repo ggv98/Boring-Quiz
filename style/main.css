@@ -48,11 +48,6 @@
     border-radius: 30%;
     background-color: cadetblue;
 }
-@media screen and (max-width: 64rem) 
-.{
-    background-color:red;
-}
-
 @media screen and (max-width: 44rem) {
     .menu{
         padding-top: 4rem;
