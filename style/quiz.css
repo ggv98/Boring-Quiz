@@ -1,0 +1,42 @@
+.container{
+    padding-top: 6rem;
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.question-container{
+    max-width: 40rem;
+}
+.answer:hover{
+    cursor: pointer;
+    background-color: rgba(201, 201, 201, 0.952);
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(86, 173, 162); 
+    
+}
+.question{
+    font-size: 2.5rem
+}
+.answer{
+    display: flex;
+    background-color: white;
+    margin: 0.3rem;
+}
+.answer-number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: teal;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+}
+.answer-text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:1rem;
+    padding: 1rem;
+}
