@@ -9,7 +9,11 @@ constructAnswerElements = () =>{
     }
 }
 constructAnswerElements();
+const progres_elem = document.getElementById("progres");
+const score_elem = document.getElementById("score");
 
+MAX_QUESTIONS = 3;
+SCORE_BONUS = 10;
 
 let question_count=0;
 let score = 0;
@@ -58,8 +62,12 @@ constructAnswerElements = () =>{
     }
 }
 showNextQuestion = () =>{
+    if(avaliable_question.length === 0 || question_count === MAX_QUESTIONS){
+        return window.location.assign("score.html");
+    }
     
     question_count++;
+    progres_elem.innerText = question_count + "\\" + MAX_QUESTIONS;
     let question_index = Math.floor(Math.random() * avaliable_question.length)
     currentquestion = avaliable_question[question_index];
     console.log(question_index);
@@ -73,15 +81,30 @@ showNextQuestion = () =>{
     console.log(avaliable_question);
 }
 
-console.log(typeof(answer[1]));
-console.log(typeof(question));
+
 for(let i =1; i<5; i++){
     answer[i].addEventListener("click" , e =>{
-        showNextQuestion();
+        let apply_style
+        if(currentquestion.correct === i){
+           apply_style = "correct";
+            increaseScore();
+        }
+        else{
+            apply_style = "incorect";
+        }
+        answer[i].parentElement.classList.add(apply_style);
+
+        setTimeout(() =>{
+            answer[i].parentElement.classList.remove(apply_style);
+            showNextQuestion();}, 1500);
+        
 
     });
 }
-
+increaseScore = () =>{
+    score += SCORE_BONUS;
+    score_elem.innerText = score;
+}
 getQuestionByType = () =>{
     let newAray = [];
     questions.forEach(element => {

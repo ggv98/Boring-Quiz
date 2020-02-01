@@ -3,9 +3,28 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 3rem;
+}
+.container{
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu-element{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4rem 5rem 3rem 5rem;
+}
+.type-text{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0rem;
 }
 .menu-image{
-    margin: 4rem 5rem 3rem 5rem;
+    
     padding: 1rem;
     width: 19rem;
     height: 17rem;
@@ -14,16 +33,23 @@
     border-radius: 30%;
     background-color: cadetblue;
 }
+h1{
+    font-size: 3.5rem;
+    color: rgb(18, 53, 33);
+    text-align: center;
+}
 @media screen and (max-width: 44rem) {
     .menu{
-        padding-top: 4rem;
+        padding-top: 8rem;
          justify-content:center;
     }
 
     .menu-image{
-        margin: 3rem 4rem 2rem 4rem;
         padding: 1rem;
         width: 12rem;
         height: 10rem;
+    }
+    .type-text{
+        font-size: 1.5rem;
     }
 }
