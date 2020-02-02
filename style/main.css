@@ -3,7 +3,6 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 3rem;
 }
 .container{
     padding-top: 7rem;
@@ -39,8 +38,11 @@ h1{
     text-align: center;
 }
 @media screen and (max-width: 44rem) {
+    h1{
+        font-size: 2rem;
+    }
     .menu{
-        padding-top: 8rem;
+        padding-top: 1rem;
          justify-content:center;
     }
 
