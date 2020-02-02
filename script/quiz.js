@@ -240,7 +240,7 @@ for(let i =1; i<5; i++){
         answer[i].parentElement.classList.add(apply_style);
         setTimeout(() =>{
             answer[i].parentElement.classList.remove(apply_style);
-            showNextQuestion();}, 1500);
+            showNextQuestion();}, 1000);
             is_ready=false;
         
 
