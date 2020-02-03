@@ -28,7 +28,7 @@ body {
     background-repeat: no-repeat;
     background-position: 10px center;
 
-    /* display: none; */
+    display: none;
 }
 
 #validation {
