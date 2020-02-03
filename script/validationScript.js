@@ -15,9 +15,14 @@ registerForm.addEventListener('submit', event => {
 
 	event.preventDefault();
 
-	auth.register(username, email, password, (success, errorCode, errorMessage) => {
+	if (!validationFunc(username, password)) {
+		return; // not to try register the inserted data
+	}
+
+	register(username, email, password, (success, errorCode, errorMessage) => {
 		if (success) {
-			window.location = 'posts.html';
+			alert("Successfully made acc");
+			window.location = 'main.html';
 		} else {
 			errors.classList.add('errors-visible');
 			errors.innerText = errorMessage;
@@ -25,10 +30,8 @@ registerForm.addEventListener('submit', event => {
 	});
 });
 
-function validationFunc() {
-	let insertedUserName = inputs[0].value;
-	let insertedEmail = inputs[1].value
-	let insertedPassword = inputs[2].value;
+
+function validationFunc(insertedUserName, insertedPassword) {
 	let checkValidity;
 
 	document.getElementById("validation").innerHTML = "";
@@ -38,22 +41,11 @@ function validationFunc() {
 
 	checkValidity = isPasswordCorrect && isUserNameCorrect;
 
-	if (checkValidity) {
-		register(insertedUserName, insertedEmail, insertedPassword, (success, errorCode, errorMessage) => {
-			console.log("dsfdsfsdfsd", success);
-			if (success) {
-				alert("The registration is made successfully!");
-				window.location = 'main.html';
-			} else {
-				document.getElementById("validation").innerHTML += errorMessage;
-			}
-		}	
-		);
-	} else {
-	showValidationMessage();
-}
+	if (!checkValidity) {
+		showValidationMessage();
+	}
 
-return checkValidity;
+	return checkValidity;
 }
 
 // checks and sends validation message
