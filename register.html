@@ -15,15 +15,15 @@
     <div class="register container">
         <h2 class="register header"> Регистрация </h2>
 
-        <form onsubmit="return validationFunc();"  class="register form" id="login-form">
-            <label for="input username">Потребителско име: </label>
-            <input class="input username" id="input username" type="text" placeholder="Type your username(nickname)">
+        <form onsubmit="return validationFunc();" class="register form" id="register-form">
+            <label for="input-username">Потребителско име: </label>
+            <input name="username" class="input username" id="input-username" type="text" placeholder="Type your username(nickname)">
 
-            <label for="input email">Имейл адрес: </label>
-            <input class="input email" id="input email" type="email" placeholder="Type email..." required>
+            <label for="input-email">Имейл адрес: </label>
+            <input name="email" class="input email" id="input-email" type="email" placeholder="Type email..." required>
 
-            <label for="input password">Парола: </label>
-            <input class="input password" id="input password" type="password" placeholder="Type password...">
+            <label for="input-password">Парола: </label>
+            <input name="password" class="input password" id="input-password" type="password" placeholder="Type password...">
 
             <input type="Submit" value="Register">
         </form>
@@ -31,16 +31,16 @@
         <p id="validation"></p>
 
     </div>
+
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.min.js"></script>
     <!-- Don't change the format for any other products. -->
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
     <!-- etc. -->
     <script src="script/firebase-db.js"></script>
-
     <script src="script/validationScript.js"></script>
 
-    
+
 
 </body>
 

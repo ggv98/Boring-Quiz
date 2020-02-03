@@ -4,9 +4,11 @@ var inputs = document.getElementsByClassName("input");
 function showValidationMessage() {
 	document.getElementById("validation").style.display = "block";
 }
-/*const registerForm = document.getElementById('register-form');
+
+const registerForm = document.getElementById('register-form');
 registerForm.addEventListener('submit', event => {
 	const formData = new FormData(event.target);
+	
 	const username = formData.get('username');
 	const email = formData.get('email');
 	const password = formData.get('password');
@@ -21,7 +23,7 @@ registerForm.addEventListener('submit', event => {
 			errors.innerText = errorMessage;
 		}
 	});
-});*/
+});
 
 function validationFunc() {
 	let insertedUserName = inputs[0].value;
@@ -37,20 +39,24 @@ function validationFunc() {
 	checkValidity = isPasswordCorrect && isUserNameCorrect;
 
 	if (checkValidity) {
-		register(insertedUserName, insertedEmail, insertedPassword , (success, errorCode, errorMessage) => {
-			console.log("dsfdsfsdfsd",success);
-			if (success) {alert("The registration is made successfully!");
+		register(insertedUserName, insertedEmail, insertedPassword, (success, errorCode, errorMessage) => {
+			console.log("dsfdsfsdfsd", success);
+			if (success) {
+				alert("The registration is made successfully!");
 				window.location = 'main.html';
-			} else { // print errorMessage in this case}
-		});
-		
+			} else {
+				document.getElementById("validation").innerHTML += errorMessage;
+			}
+		}	
+		);
 	} else {
-		showValidationMessage();
-	}
-
-	return checkValidity;
+	showValidationMessage();
 }
 
+return checkValidity;
+}
+
+// checks and sends validation message
 function checkValidityPassword(insertedPassword) {
 	let smallLetter = false;
 	let capitalLetter = false;
@@ -113,6 +119,7 @@ function checkValidityEmail(insertedEmail) {
 	return standardCharacterMails && isThereDot && insertedEmail.length >= 5;
 }
 
+// check and sends validation message
 function checkValidityUserName(insertedUserName) {
 	let errorElement = document.getElementById("validation");
 
