@@ -18,7 +18,7 @@
     <div class="login container">
         <h2 class="login header"> Login </h2>
 
-        <form onsubmit="return loginFunction()" class="login form" action="post" action="#" id="login-form">
+        <form class="login form" action="post" action="#" id="login-form">
             <label for="input-email">Email address</label>
             <input name="email" class="input email" id="input-email" type="email" placeholder="Type email...">
 
@@ -27,6 +27,8 @@
 
             <input type="Submit" value="Login">
         </form>
+
+        <p id="validation"></p>
 
         <a href="register.html"> Sign up </a>
         <a href="main.html"> Login as a guest </a>
