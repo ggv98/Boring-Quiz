@@ -4,29 +4,33 @@ var inputs = document.getElementsByClassName("input");
 function showValidationMessage() {
 	document.getElementById("validation").style.display = "block";
 }
-/*const registerForm = document.getElementById('register-form');
+
+const registerForm = document.getElementById('register-form');
 registerForm.addEventListener('submit', event => {
 	const formData = new FormData(event.target);
+	
 	const username = formData.get('username');
 	const email = formData.get('email');
 	const password = formData.get('password');
 
 	event.preventDefault();
 
-	auth.register(username, email, password, (success, errorCode, errorMessage) => {
+	if (!validationFunc(username, password)) {
+		return; // not to try register the inserted data
+	}
+
+	register(username, email, password, (success, errorCode, errorMessage) => {
 		if (success) {
-			window.location = 'posts.html';
+			alert("Successfully made acc");
+			window.location = 'main.html';
 		} else {
-			errors.classList.add('errors-visible');
-			errors.innerText = errorMessage;
+			document.getElementById("validation").innerHTML = "" + errorMessage;
 		}
 	});
-});*/
+});
 
-function validationFunc() {
-	let insertedUserName = inputs[0].value;
-	let insertedEmail = inputs[1].value
-	let insertedPassword = inputs[2].value;
+
+function validationFunc(insertedUserName, insertedPassword) {
 	let checkValidity;
 
 	document.getElementById("validation").innerHTML = "";
@@ -36,21 +40,14 @@ function validationFunc() {
 
 	checkValidity = isPasswordCorrect && isUserNameCorrect;
 
-	if (checkValidity) {
-		register(insertedUserName, insertedEmail, insertedPassword , (success, errorCode, errorMessage) => {
-			console.log("dsfdsfsdfsd",success);
-			if (success) {alert("The registration is made successfully!");
-				window.location = 'main.html';
-			} else { // print errorMessage in this case}
-		});
-		
-	} else {
+	if (!checkValidity) {
 		showValidationMessage();
 	}
 
 	return checkValidity;
 }
 
+// checks and sends validation message
 function checkValidityPassword(insertedPassword) {
 	let smallLetter = false;
 	let capitalLetter = false;
@@ -113,6 +110,7 @@ function checkValidityEmail(insertedEmail) {
 	return standardCharacterMails && isThereDot && insertedEmail.length >= 5;
 }
 
+// check and sends validation message
 function checkValidityUserName(insertedUserName) {
 	let errorElement = document.getElementById("validation");
 
