@@ -16,18 +16,16 @@ constructChoiceElements = () =>{
     }
 }
 constructChoiceElements();
-console.log(choices);
-
 const progres_elem = document.getElementById("progres");
 const score_elem = document.getElementById("score");
 
-MAX_QUESTIONS = 3;
-SCORE_BONUS = 10;
+MAX_QUESTIONS = 3;//max number of questions in quiz
+SCORE_BONUS = 10;// score bonus for correct answer
 
-let is_ready = false;
-let question_count=0;
+let is_ready = false; //is quistion ready
+let question_count=0;//number of answered questions
 let score = 0;
-let avaliable_question =[];
+let avaliable_question =[];//question of correct category wich not asked yet
 let currentquestion = {};
 let questions = [
     {
@@ -173,23 +171,18 @@ let questions = [
         type: "math",
         correct: 2,
     }
-]
+]//array of all questions
 
 start = () =>{
     question_count = 0;
     avaliable_question = getQuestionByType();
-    
+    AddEventListenerToChoices();
     showNextQuestion();
 }
 
-constructAnswerElements = () =>{
-    for(let i =1; i<5; i++){
-        answer[i] = document.getElementById("answer" + i);
-    }
-}
 showNextQuestion = () =>{
     if(avaliable_question.length === 0 || question_count === MAX_QUESTIONS){
-        localStorage.setItem("score", score);
+        localStorage.setItem("score", score);// add score to localStorage
         return window.location.assign("score.html");
     }
     
@@ -225,26 +218,29 @@ showNextQuestion = () =>{
 }
 
 
-for(let i =1; i<5; i++){
-    
-    choices[i].addEventListener("click" , e =>{
-        if(is_ready === false)return;
-        let apply_style;
-        if(currentquestion.correct === i){
-           apply_style = "correct";
-            increaseScore();
-        }
-        else{
-            apply_style = "incorect";
-        }
-        answer[i].parentElement.classList.add(apply_style);
-        setTimeout(() =>{
-            answer[i].parentElement.classList.remove(apply_style);
-            showNextQuestion();}, 1000);
-            is_ready=false;
-        
+AddEventListenerToChoices = () => {
+    for (let i = 1; i < 5; i++) {
+        choices[i].addEventListener("click", e => {
+            if (is_ready === false) return;//question not load or is answered yet
+            let apply_style;
+            if (currentquestion.correct === i) {
+                apply_style = "correct";
+                increaseScore();
+            }
+            else {
+                apply_style = "incorect";
+            }
+            answer[i].parentElement.classList.add(apply_style);
+            
+            setTimeout(() => {
+                answer[i].parentElement.classList.remove(apply_style);
+                showNextQuestion();
+            }, 1000);
 
-    });
+
+            is_ready = false;
+        });
+    }
 }
 increaseScore = () =>{
     score += SCORE_BONUS;

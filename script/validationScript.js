@@ -4,9 +4,28 @@ var inputs = document.getElementsByClassName("input");
 function showValidationMessage() {
 	document.getElementById("validation").style.display = "block";
 }
+/*const registerForm = document.getElementById('register-form');
+registerForm.addEventListener('submit', event => {
+	const formData = new FormData(event.target);
+	const username = formData.get('username');
+	const email = formData.get('email');
+	const password = formData.get('password');
+
+	event.preventDefault();
+
+	auth.register(username, email, password, (success, errorCode, errorMessage) => {
+		if (success) {
+			window.location = 'posts.html';
+		} else {
+			errors.classList.add('errors-visible');
+			errors.innerText = errorMessage;
+		}
+	});
+});*/
 
 function validationFunc() {
 	let insertedUserName = inputs[0].value;
+	let insertedEmail = inputs[1].value
 	let insertedPassword = inputs[2].value;
 	let checkValidity;
 
@@ -18,7 +37,13 @@ function validationFunc() {
 	checkValidity = isPasswordCorrect && isUserNameCorrect;
 
 	if (checkValidity) {
-		alert("The registration is made successfully!");
+		register(insertedUserName, insertedEmail, insertedPassword , (success, errorCode, errorMessage) => {
+			console.log("dsfdsfsdfsd",success);
+			if (success) {alert("The registration is made successfully!");
+				window.location = 'main.html';
+			} else { // print errorMessage in this case}
+		});
+		
 	} else {
 		showValidationMessage();
 	}

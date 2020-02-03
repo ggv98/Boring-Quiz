@@ -15,7 +15,7 @@
     <div class="register container">
         <h2 class="register header"> Регистрация </h2>
 
-        <form onsubmit="return validationFunc();" class="register form" action="post" action="#" id="login-form">
+        <form onsubmit="return validationFunc();"  class="register form" id="login-form">
             <label for="input username">Потребителско име: </label>
             <input class="input username" id="input username" type="text" placeholder="Type your username(nickname)">
 
@@ -31,8 +31,16 @@
         <p id="validation"></p>
 
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.min.js"></script>
+    <!-- Don't change the format for any other products. -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <!-- etc. -->
+    <script src="script/firebase-db.js"></script>
 
     <script src="script/validationScript.js"></script>
+
+    
 
 </body>
 
