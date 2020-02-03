@@ -24,8 +24,7 @@ registerForm.addEventListener('submit', event => {
 			alert("Successfully made acc");
 			window.location = 'main.html';
 		} else {
-			errors.classList.add('errors-visible');
-			errors.innerText = errorMessage;
+			document.getElementById("validation").innerHTML = "" + errorMessage;
 		}
 	});
 });
