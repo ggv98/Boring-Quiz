@@ -1,3 +1,6 @@
+function showValidationMessage() {
+	document.getElementById("validation").style.display = "block";
+}
 
 const loginForm = document.getElementById('login-form');
 
@@ -14,7 +17,8 @@ loginForm.addEventListener('submit', event => {
 			alert("Successfully loged in your acc!");
 			window.location = 'main.html';
 		} else {
-			document.getElementById("validation").innerHTML = "" + errorMessage;
+            document.getElementById("validation").innerHTML = "" + errorMessage;
+            showValidationMessage();
 		}
 	});
 });
