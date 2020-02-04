@@ -24,7 +24,15 @@ registerForm.addEventListener('submit', event => {
 	register(username, email, password, (success, errorCode, errorMessage) => {
 		if (success) {
 			hideValidationMessage();
-			window.location = 'main.html';
+			login(email, password, (success, errorCode, errorMessage) => {
+				if (success) {
+					hideValidationMessage();
+					window.location = 'main.html';
+				} else {
+					showValidationMessage();
+					document.getElementById("validation").innerText = "" + errorMessage;
+				}
+			});
 		} else {
 			showValidationMessage();
 			document.getElementById("validation").innerText = " " + errorMessage;
