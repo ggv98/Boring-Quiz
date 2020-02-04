@@ -1,6 +1,11 @@
 
 const loginForm = document.getElementById('login-form');
-
+function showValidationMessage() {
+	document.getElementById("validation").style.display = "block";
+}
+function hideValidationMessage() {
+	document.getElementById("validation").style.display = "none";
+}
 loginForm.addEventListener('submit', event => {
 	const formData = new FormData(event.target);
 	
@@ -11,10 +16,11 @@ loginForm.addEventListener('submit', event => {
 
 	login(email, password, (success, errorCode, errorMessage) => {
 		if (success) {
-			alert("Successfully loged in your acc!");
+			hideValidationMessage();
 			window.location = 'main.html';
 		} else {
-			document.getElementById("validation").innerHTML = "" + errorMessage;
+			showValidationMessage();
+			document.getElementById("validation").innerText = "" + errorMessage;
 		}
 	});
 });

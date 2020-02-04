@@ -4,7 +4,9 @@ var inputs = document.getElementsByClassName("input");
 function showValidationMessage() {
 	document.getElementById("validation").style.display = "block";
 }
-
+function hideValidationMessage() {
+	document.getElementById("validation").style.display = "none";
+}
 const registerForm = document.getElementById('register-form');
 registerForm.addEventListener('submit', event => {
 	const formData = new FormData(event.target);
@@ -21,10 +23,11 @@ registerForm.addEventListener('submit', event => {
 
 	register(username, email, password, (success, errorCode, errorMessage) => {
 		if (success) {
-			alert("Successfully made acc");
+			hideValidationMessage();
 			window.location = 'main.html';
 		} else {
-			document.getElementById("validation").innerHTML = "" + errorMessage;
+			showValidationMessage();
+			document.getElementById("validation").innerText = " " + errorMessage;
 		}
 	});
 });
@@ -42,6 +45,9 @@ function validationFunc(insertedUserName, insertedPassword) {
 
 	if (!checkValidity) {
 		showValidationMessage();
+	}
+	else{
+		hideValidationMessage();
 	}
 
 	return checkValidity;
@@ -66,16 +72,16 @@ function checkValidityPassword(insertedPassword) {
 	}
 
 	if (!smallLetter) {
-		errorMessageField.innerHTML += "Password must contain at least one small letter!<BR>"
+		errorMessageField.innerText += "Password must contain at least one small letter!<BR>"
 	}
 	if (!capitalLetter) {
-		errorMessageField.innerHTML += "Password must contain at least one capital letter!<BR>";
+		errorMessageField.innerText += "Password must contain at least one capital letter!<BR>";
 	}
 	if (!specialLetter) {
-		errorMessageField.innerHTML += "Password must contain at least one special letter (!@#$%^&)!<BR>";
+		errorMessageField.innerText += "Password must contain at least one special letter (!@#$%^&)!<BR>";
 	}
 	if (insertedPassword.length < 6) {
-		errorMessageField.innerHTML += "Password length must be at least 6 characters<BR>";
+		errorMessageField.innerText += "Password length must be at least 6 characters<BR>";
 	}
 
 	return smallLetter && capitalLetter &&
