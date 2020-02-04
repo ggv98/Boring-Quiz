@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Boring Quiz</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/page_header.css">
-    <link rel="stylesheet" href="style/score.css">
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	 crossorigin="anonymous">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-</head>
+<header class="page-header">
+    <h1 class="page-header-title">Boring Quiz</h1>
+    <h2 id="page-header-username">dhgfhfgh</h2>
+    <menu class="header-menu">
+        <button class="header-menu-button" action="#">Profile</button>
+        <button class="header-menu-button" action="#">Scores</button>
+        <button class="header-menu-button" onclick="exit()">Exit</button>
+
+    </menu>
+</header>
 
 <body>
-	<header class="page-header">
+    <header class="page-header">
         <h1 class="page-header-title">Boring Quiz</h1>
         <menu class="header-menu">
             <button class="header-menu-button" action="#">Profile</button>
-            <button class="header-menu-button"action ="#">Scores</button>
-            <button class="header-menu-button" action ="#">Exit</button>
-            
+            <button class="header-menu-button" action="#">Scores</button>
+            <button class="header-menu-button" action="#">Exit</button>
+
         </menu>
-	</header>
+    </header>
     <main class="container">
         <div>
             <div class="score-board">
                 <p class="score">Score:</p>
                 <p id="score" class="score">0</p>
             </div>
-            
-            <a class="btn" href ="main.html">Start New Game</a>
+
+            <a class="btn" href="main.html">Start New Game</a>
         </div>
     </main>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.min.js"></script>
+    <!-- Don't change the format for any other products. -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <!-- etc. -->
+    <script src="script/firebase-db.js"></script>
     <script src="script/score.js"></script>
-   
+    <script src="script/authentication.js"></script>
+
 </body>
+
 </html>

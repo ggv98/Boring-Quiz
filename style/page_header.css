@@ -12,6 +12,12 @@
     font-size: 2.5rem;
     color: white;
 }
+#page-header-username{
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 1rem;
+    color: white;
+}
 .header-menu{
     display: flex;
     align-items: center;
