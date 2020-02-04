@@ -74,22 +74,22 @@ function checkValidityPassword(insertedPassword) {
 		} else if (char >= 'A' && char <= 'Z') {
 			capitalLetter = true;
 		} else if (char == '!' || char == '@' || char == '#' ||
-			char == '$' || char == '%' || char == '^' || char == '&') {
+			char == '$' || char == '%' || char == '_'|| char == '^' || char == '&') {
 			specialLetter = true;
 		}
 	}
 
 	if (!smallLetter) {
-		errorMessageField.innerText += "Password must contain at least one small letter!<BR>"
+		errorMessageField.innerHTML += "Password must contain at least one small letter!<BR>"
 	}
 	if (!capitalLetter) {
-		errorMessageField.innerText += "Password must contain at least one capital letter!<BR>";
+		errorMessageField.innerHTML += "Password must contain at least one capital letter! <BR>";
 	}
 	if (!specialLetter) {
-		errorMessageField.innerText += "Password must contain at least one special letter (!@#$%^&)!<BR>";
+		errorMessageField.innerHTML += "Password must contain at least one special letter (!@#$%^&)!<BR>";
 	}
 	if (insertedPassword.length < 6) {
-		errorMessageField.innerText += "Password length must be at least 6 characters<BR>";
+		errorMessageField.innerHTML += "Password length must be at least 6 characters <BR>";
 	}
 
 	return smallLetter && capitalLetter &&

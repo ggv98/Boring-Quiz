@@ -1,6 +1,7 @@
 .login.container {
    background-image: url("../image/chemistry.png");
-  
+   box-shadow: 0.8rem 0.8rem 1.8rem 0.8rem rgb(86, 173, 162); 
+   border: 1px solid  rgb(86, 173, 162);
 }
 
 
