@@ -28,7 +28,12 @@ body {
     padding: 15px 10px 15px 50px;
     background-repeat: no-repeat;
     background-position: 10px center;
+<<<<<<< HEAD
     display: none; 
+=======
+
+    display: none;
+>>>>>>> b108fef7ef0f920cffa9cd3c9d815baa01a180b0
 }
 
 #validation {
