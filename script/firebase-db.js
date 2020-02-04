@@ -25,13 +25,7 @@ var firebaseConfig = {
 const logout = () => {
     return firebase.auth().signOut();
 };
-const isLogged = () =>{
-    if (!firebase.auth().currentUser) {
-        return false;
-    }
 
-    return firebase.auth().currentUser.displayName;
-}
 const register = (username, email, password, callback) => {
     firebase.auth().createUserWithEmailAndPassword(email, password).then((data) => {
         data.user.updateProfile({

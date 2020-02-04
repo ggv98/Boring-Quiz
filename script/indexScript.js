@@ -1,14 +1,11 @@
 function showValidationMessage() {
 	document.getElementById("validation").style.display = "block";
 }
-
-const loginForm = document.getElementById('login-form');
-function showValidationMessage() {
-	document.getElementById("validation").style.display = "block";
-}
 function hideValidationMessage() {
 	document.getElementById("validation").style.display = "none";
 }
+const loginForm = document.getElementById('login-form');
+
 loginForm.addEventListener('submit', event => {
 	const formData = new FormData(event.target);
 	
@@ -22,13 +19,8 @@ loginForm.addEventListener('submit', event => {
 			hideValidationMessage();
 			window.location = 'main.html';
 		} else {
-<<<<<<< HEAD
 			showValidationMessage();
 			document.getElementById("validation").innerText = "" + errorMessage;
-=======
-            document.getElementById("validation").innerHTML = "" + errorMessage;
-            showValidationMessage();
->>>>>>> b108fef7ef0f920cffa9cd3c9d815baa01a180b0
 		}
 	});
 });
